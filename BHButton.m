@@ -151,7 +151,7 @@ static NSInteger const smallFont = 12;
         self.backgroundColor = [UIColor grayColor];
     }
     
-    return YES;
+    return [super beginTrackingWithTouch:touch withEvent:event];
 }
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(nullable UIEvent *)event
 {
@@ -162,7 +162,7 @@ static NSInteger const smallFont = 12;
         self.backgroundColor = [UIColor grayColor];
     }
     
-    return YES;
+    return [super continueTrackingWithTouch:touch withEvent:event];
 }
 - (void)endTrackingWithTouch:(nullable UITouch *)touch withEvent:(nullable UIEvent *)event
 {
@@ -172,6 +172,8 @@ static NSInteger const smallFont = 12;
     if (_imageType == BHButtonItemTypeSmallImage) {
         self.backgroundColor = BHColorWithSix(BHAppWhiteColor);
     }
+    
+    [super endTrackingWithTouch:touch withEvent:event];
 }
 
 - (void)cancelTrackingWithEvent:(nullable UIEvent *)event
@@ -182,6 +184,7 @@ static NSInteger const smallFont = 12;
     if (_imageType == BHButtonItemTypeSmallImage) {
         self.backgroundColor = BHColorWithSix(BHAppWhiteColor);
     }
+    [super cancelTrackingWithEvent:event];
 }
 
 @end
